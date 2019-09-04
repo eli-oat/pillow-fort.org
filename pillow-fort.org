@@ -181,7 +181,13 @@ I've been waffling a lot, lately, and also enjoying light themes.
   :ensure t
   :config 
   (setq org-todo-keywords
-      '((sequence "TODO" "IN-PROCESS" "FOLLOW-UP" "|" "DONE"))))
+      '((sequence "TODO" "IN-PROCESS" "FOLLOW-UP" "|" "DONE")))
+      (setq org-fontify-done-headline t)
+      (custom-set-faces
+      '(org-done ((t (:foreground "#5DA7AA" :weight normal :strike-through t))))
+      '(org-headline-done
+            ((((class color) (min-colors 16) (background light))
+               (:foreground "#5E81AC" :strike-through t))))))
 
 (use-package org-bullets
   :ensure t
