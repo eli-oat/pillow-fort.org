@@ -193,6 +193,11 @@ Who needs Postman when you've got emacs!?
 #+BEGIN_SRC emacs-lisp
 (use-package restclient
     :ensure t)
+(use-package ob-restclient 
+    :ensure t 
+    :init (org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((restclient . t))))
 #+END_SRC
 
 *** Clojure
