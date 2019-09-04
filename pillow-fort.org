@@ -201,6 +201,32 @@
   :ensure t)
 #+END_SRC
 
+*** HTML
+#+BEGIN_SRC emacs-lisp
+(use-package web-mode 
+  :ensure t)
+#+END_SRC
+
+*** JSON
+#+BEGIN_SRC emacs-lisp
+(use-package json-mode 
+  :ensure t)
+#+END_SRC
+
+*** Javascript
+#+BEGIN_SRC emacs-lisp
+(use-package js2-mode
+  :ensure t
+  :mode "\\..js\\'")
+#+END_SRC
+
+*** Typescript
+#+BEGIN_SRC emacs-lisp
+(use-package tide
+  :ensure t 
+  :mode "\\.ts\\'")
+#+END_SRC
+
 * Useful functions 
 ** Quickly edit this very file!
 #+BEGIN_SRC emacs-lisp
