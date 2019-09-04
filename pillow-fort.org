@@ -159,8 +159,8 @@ I've been waffling a lot, lately, and also enjoying light themes.
 (use-package flycheck
     :ensure t
     :defer 2
-    :config (global-flycheck-mode))
-(add-hook 'after-init-hook #'global-flycheck-mode)
+    :config (global-flycheck-mode)
+    (add-hook 'after-init-hook #'global-flycheck-mode))
 #+END_SRC
 
 ** Automatically re-size splits
@@ -176,10 +176,10 @@ I've been waffling a lot, lately, and also enjoying light themes.
 #+BEGIN_SRC emacs-lisp
 (use-package org
   :mode (("\\.org$" . org-mode))
-  :ensure t)
-
-(setq org-todo-keywords
-      '((sequence "TODO" "IN-PROCESS" "FOLLOW-UP" "|" "DONE")))
+  :ensure t
+  :config 
+  (setq org-todo-keywords
+      '((sequence "TODO" "IN-PROCESS" "FOLLOW-UP" "|" "DONE"))))
 
 (use-package org-bullets
   :ensure t
@@ -212,7 +212,9 @@ Who needs Postman when you've got emacs!?
 
 *** WISP
 #+BEGIN_SRC emacs-lisp
-(use-package wispjs-mode)
+(use-package wispjs-mode
+  :ensure t
+  :mode "\\.wisp\\'")
 #+END_SRC
 
 *** Markdown
@@ -244,7 +246,8 @@ Who needs Postman when you've got emacs!?
 *** JSON
 #+BEGIN_SRC emacs-lisp
 (use-package json-mode 
-  :ensure t)
+  :ensure t
+  :mode "\\.json\\'")
 #+END_SRC
 
 *** Javascript
