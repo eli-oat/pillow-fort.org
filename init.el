@@ -42,6 +42,10 @@
 (require 'org)
 (org-babel-load-file (expand-file-name "~/.emacs.d/pillow-fort.org"))
 
+;; Load custom stuff if available
+(when (file-exists-p "~/.emacs.d/blanket-fort.el")
+(load "~/.emacs.d/blanket-fort.el"))
+
 (provide 'init)
 ;;; init.el ends here
 (custom-set-variables

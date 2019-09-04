@@ -1,5 +1,6 @@
 */.DS_STORE
 /elpa
+/local-elisp
 *.el~
 *.org~
 pillow-fort.el
@@ -8,3 +9,4 @@ eshell
 .cache
 session*
 projectile-bookmarks.eld
+blanket-fort.el
