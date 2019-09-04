@@ -147,21 +147,58 @@
   :config (golden-ratio-mode 1))
 #+END_SRC
 
-** Org related stuff
-*** The one and only
+** Language specific packages
+*** Org related stuff
 #+BEGIN_SRC emacs-lisp
 (use-package org
   :mode (("\\.org$" . org-mode))
   :ensure t)
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (setq org-bullets-bullet-list '("∙"))
+  (add-hook 'org-mode-hook 'org-bullets-mode))
 #+END_SRC
 
-*** Sexier org dots
+*** Clojure
 #+BEGIN_SRC emacs-lisp
-  (use-package org-bullets
-    :ensure t
-    :config
-    (setq org-bullets-bullet-list '("∙"))
-    (add-hook 'org-mode-hook 'org-bullets-mode))
+(use-package clojure-mode
+    :ensure t)
+
+(use-package 
+  cider 
+  :ensure t 
+  :config (progn (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion) 
+		 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion) 
+		 (add-hook 'after-save-hook (lambda() 
+					      (when (eq major-mode 'clojure-mode) 
+						(cider-load-buffer))))))
+#+END_SRC
+
+*** WISP
+#+BEGIN_SRC emacs-lisp
+(use-package wispjs-mode)
+#+END_SRC
+
+*** Markdown
+#+BEGIN_SRC emacs-lisp
+(use-package markdown-mode 
+  :ensure t 
+  :commands (markdown-mode gfm-mode) 
+  :mode (("README\\.md\\'" . gfm-mode) 
+	 ("\\.txt\\'" . markdown-mode) 
+	 ("\\.md\\'" . markdown-mode) 
+	 ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+#+END_SRC
+
+*** Elisp
+#+BEGIN_SRC emacs-lisp
+(use-package package-lint 
+  :ensure t)
+(use-package elisp-format 
+  :ensure t)
 #+END_SRC
 
 * Useful functions 
