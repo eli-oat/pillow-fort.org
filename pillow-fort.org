@@ -17,6 +17,10 @@
   (column-number-mode +1)
   (global-hl-line-mode 1) ; highlight the currently active line
 
+  ;; Display line numbers, but only on Emacs26 or higher
+  (when (version<= "26.0.50" emacs-version )
+    (global-display-line-numbers-mode))
+
   ;; Silkier scrolling
   (setq scroll-margin 0
         scroll-conservatively 10000
@@ -165,6 +169,9 @@
 (use-package org
   :mode (("\\.org$" . org-mode))
   :ensure t)
+
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROCESS" "FOLLOW-UP" "|" "DONE")))
 
 (use-package org-bullets
   :ensure t
