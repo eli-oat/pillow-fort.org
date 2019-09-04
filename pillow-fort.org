@@ -38,9 +38,9 @@
 ** Theme
 I've been waffling a lot, lately, and also enjoying light themes.
 #+BEGIN_SRC emacs-lisp
-(use-package dracula-theme
-    :ensure t)
-(add-to-list 'default-frame-alist '(tty-color-mode  . -1)) ; this makes it so that emacs doesn't load a theme when launched in a terminal
+; (use-package dracula-theme
+;     :ensure t)
+; (add-to-list 'default-frame-alist '(tty-color-mode  . -1)) ; this makes it so that emacs doesn't load a theme when launched in a terminal
 #+END_SRC
 
 * Override some default behaviors for more convenient editing
