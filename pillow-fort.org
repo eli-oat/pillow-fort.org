@@ -75,7 +75,9 @@
         helm-echo-input-in-header-line t
         helm-autoresize-max-height 0
         helm-autoresize-min-height 20)
-    :config (helm-mode 1))
+    :config (helm-mode 1)
+    (global-set-key (kbd "M-x") 'helm-M-x) ; like spacemacs, but with M-x instead of SPC
+    (global-set-key (kbd "M-f") 'helm-find-files))
 #+END_SRC
 
 ** Which Key, because things are easier with hints
