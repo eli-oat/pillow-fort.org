@@ -260,8 +260,12 @@ Who needs Postman when you've got emacs!?
 *** Typescript
 #+BEGIN_SRC emacs-lisp
 (use-package tide
-  :ensure t 
-  :mode "\\.ts\\'")
+  :ensure t
+  :mode "\\.ts\\'"
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)
+         (before-save . tide-format-before-save)))
 #+END_SRC
 
 * Useful functions 
