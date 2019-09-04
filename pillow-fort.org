@@ -112,22 +112,6 @@ I've been waffling a lot, lately, and also enjoying light themes.
   (global-company-mode +1)))
 #+END_SRC
 
-** Neo Tree and Projectile
-I get that treemacs is better than neo tree, but, you know...sometimes you gotta do you?
-#+BEGIN_SRC emacs-lisp
-  (use-package neotree
-    :ensure t
-    :config
-    (global-set-key (kbd "C-c t") 'neotree-toggle)
-    (setq neo-smart-open t)
-    (setq neo-theme 'arrow))
-
-(use-package projectile 
-  :ensure t 
-  :config (progn (projectile-mode) 
-		 (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)))
-#+END_SRC
-
 ** Rainbows! 
 #+BEGIN_SRC emacs-lisp
 (use-package rainbow-delimiters
@@ -273,9 +257,19 @@ Who needs Postman when you've got emacs!?
 
 *** Javascript
 #+BEGIN_SRC emacs-lisp
-(use-package js2-mode
-  :ensure t
-  :mode "\\.js\\'")
+(use-package 
+  js2-mode 
+  :ensure t 
+  :mode "\\.js\\'" 
+  :interpreter "node" 
+  :init (setq-default js2-concat-multiline-strings 'eol) 
+  (setq-default js2-global-externs '("module" "require" "setTimeout" "clearTimeout" "setInterval"
+				     "clearInterval" "location" "__dirname" "console" "JSON"
+				     "window" "process" "fetch")) 
+  (setq-default js2-strict-inconsistent-return-warning nil) 
+  :config (use-package 
+	    prettier-js 
+	    :ensure t) 
 #+END_SRC
 
 *** Typescript
