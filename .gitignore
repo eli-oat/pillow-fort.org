@@ -1,0 +1,8 @@
+*/.DS_STORE
+/elpa
+*.el~
+*.org~
+pillow-fort.el
+auto-save-list
+eshell
+.cache

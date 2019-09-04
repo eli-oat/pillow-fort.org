@@ -1,0 +1,42 @@
+#+Title: Pillow-Fort, an emacs config by Eli Mellen
+#+Author: Eli Mellen
+#+Date: 2019
+
+* Fiddling with the basic UI of emacs
+#+BEGIN_SRC emacs-lisp
+  (setq frame-title-format '("Cozy Pillow Fort")
+        ring-bell-function 'ignore
+        default-directory "~/")
+
+  (tool-bar-mode   -1)
+  (menu-bar-mode   +1) ; I <3 menu bar
+  (scroll-bar-mode -1)
+
+  ;; Column number in mode-line
+  (column-number-mode +1)
+
+  ;; Silkier scrolling
+  (setq scroll-margin 0
+        scroll-conservatively 10000
+        scroll-preserve-screen-position t
+        auto-window-vscroll nil)
+
+  ;; Increase line space for better readability
+  (setq-default line-spacing 3)
+
+  ;; Tabs are for monsters. No monsters are allowed in the pillow fort (defaults to 4 spaces).
+  (setq-default indent-tabs-mode nil
+                tab-width 4)
+#+END_SRC
+
+* Override some default behaviors
+#+BEGIN_SRC emacs-lisp
+;; Stop emacs from littering your file system with garbage
+(setq create-lock-files nil make-backup-files nil auto-save-default nil)
+
+;; Play nice(er) with the X11 clipboard
+(setq select-enable-clipboard t)
+
+;; Surpress the welcome screen
+(setq inhibit-startup-message t initial-scratch-message nil)
+#+END_SRC
