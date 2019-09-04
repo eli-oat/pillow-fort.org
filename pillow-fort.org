@@ -35,6 +35,13 @@
                 tab-width 4)
 #+END_SRC
 
+** Theme
+I've been waffling a lot, lately, and also enjoying light themes.
+#+BEGIN_SRC emacs-lisp
+(use-package dracula-theme
+    :ensure t)
+#+END_SRC
+
 * Override some default behaviors for more convenient editing
 
 #+BEGIN_SRC emacs-lisp
@@ -178,6 +185,13 @@
   :config
   (setq org-bullets-bullet-list '("∙"))
   (add-hook 'org-mode-hook 'org-bullets-mode))
+#+END_SRC
+
+*** Restclient
+Who needs Postman when you've got emacs!?
+#+BEGIN_SRC emacs-lisp
+(use-package restclient
+    :ensure t)
 #+END_SRC
 
 *** Clojure
