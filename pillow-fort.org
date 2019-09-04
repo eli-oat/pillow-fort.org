@@ -2,7 +2,8 @@
 #+Author: Eli Mellen
 #+Date: 2019
 
-* Fiddling with the basic UI of emacs
+* Fiddling with the basic UI and setting the stage
+
 #+BEGIN_SRC emacs-lisp
   (setq frame-title-format '("Cozy Pillow Fort")
         ring-bell-function 'ignore
@@ -11,9 +12,10 @@
   (tool-bar-mode   -1)
   (menu-bar-mode   +1) ; I <3 menu bar
   (scroll-bar-mode -1)
-
-  ;; Column number in mode-line
+  (global-visual-line-mode 1) ; line wrapping, because I spend a lot of time working on very tiny screens
+  (global-prettify-symbols-mode 1)
   (column-number-mode +1)
+  (global-hl-line-mode 1) ; highlight the currently active line
 
   ;; Silkier scrolling
   (setq scroll-margin 0
@@ -29,7 +31,8 @@
                 tab-width 4)
 #+END_SRC
 
-* Override some default behaviors
+* Override some default behaviors for more convenient editing
+
 #+BEGIN_SRC emacs-lisp
 ;; Stop emacs from littering your file system with garbage
 (setq create-lock-files nil make-backup-files nil auto-save-default nil)
@@ -39,4 +42,146 @@
 
 ;; Surpress the welcome screen
 (setq inhibit-startup-message t initial-scratch-message nil)
+
+;; Automatically save and load changes
+(global-auto-revert-mode +1)
+(auto-save-visited-mode  +1)
+
+;; Automatically insert buddies
+(electric-pair-mode +1)
+
+;; Highlight buddies (and do it right away)
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+#+END_SRC
+
+* FedEx (because packages?)
+** Helm, the completion framework
+#+BEGIN_SRC emacs-lisp
+(use-package helm
+    :ensure t
+    :init
+    (setq helm-M-x-fuzzy-match t
+        helm-mode-fuzzy-match t
+        helm-buffers-fuzzy-matching t
+        helm-recentf-fuzzy-match t
+        helm-locate-fuzzy-match t
+        helm-semantic-fuzzy-match t
+        helm-imenu-fuzzy-match t
+        helm-completion-in-region-fuzzy-match t
+        helm-candidate-number-list 150
+        helm-split-window-in-side-p t
+        helm-move-to-line-cycle-in-source t
+        helm-echo-input-in-header-line t
+        helm-autoresize-max-height 0
+        helm-autoresize-min-height 20)
+    :config (helm-mode 1))
+#+END_SRC
+
+** Which Key, because things are easier with hints
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+    :ensure t
+    :init
+    (setq which-key-separator " ")
+    (setq which-key-prefix-prefix "+")
+    :config (which-key-mode 1))
+#+END_SRC
+
+** Company, complettion in the mode-line
+#+BEGIN_SRC emacs-lisp
+(use-package company 
+  :ensure t 
+  :init (setq company-dabbrev-downcase 0 company-idle-delay 0) 
+  :config (progn (company-mode +1)
+  (global-company-mode +1)))
+#+END_SRC
+
+** Rainbows! 
+#+BEGIN_SRC emacs-lisp
+(use-package rainbow-delimiters
+    :ensure t
+    :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)) ; on by default
+(use-package rainbow-identifiers
+    :ensure t)
+(use-package nyan-mode 
+    :ensure t
+    :config (add-hook 'prog-mode-hook #'nyan-mode))
+#+END_SRC
+
+** Git gutter
+#+BEGIN_SRC emacs-lisp
+  (use-package git-gutter
+    :ensure t
+    :config (global-git-gutter-mode 't)
+    :diminish git-gutter-mode)
+#+END_SRC
+
+** Highlight TODO and FIXME messages
+#+BEGIN_SRC emacs-lisp
+(use-package hl-todo
+  :ensure t
+  :config (add-hook 'prog-mode-hook #'hl-todo-mode))
+#+END_SRC
+
+** Indent stuff for me
+#+BEGIN_SRC emacs-lisp
+ (use-package aggressive-indent
+      :ensure t)
+#+END_SRC
+
+** Flycheck (make sure the zipper is up?)
+#+BEGIN_SRC emacs-lisp
+(use-package flycheck
+    :ensure t
+    :defer 2
+    :config (global-flycheck-mode))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+#+END_SRC
+
+** Automatically re-size splits
+#+BEGIN_SRC emacs-lisp
+(use-package golden-ratio
+  :defer 2
+  :ensure t
+  :config (golden-ratio-mode 1))
+#+END_SRC
+
+** Org related stuff
+*** The one and only
+#+BEGIN_SRC emacs-lisp
+(use-package org
+  :mode (("\\.org$" . org-mode))
+  :ensure t)
+#+END_SRC
+
+*** Sexier org dots
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :ensure t
+    :config
+    (setq org-bullets-bullet-list '("∙"))
+    (add-hook 'org-mode-hook 'org-bullets-mode))
+#+END_SRC
+
+* Useful functions 
+** Quickly edit this very file!
+#+BEGIN_SRC emacs-lisp
+(defun find-config ()
+    "Build the pillow fort!"
+    (interactive)
+    (find-file "~/.emacs.d/pillow-fort.org"))
+#+END_SRC
+
+** Create a new empty buffer 
+#+BEGIN_SRC emacs-lisp
+;; Straight up stollen from <http://ergoemacs.org/emacs/emacs_new_empty_buffer.html>
+(defun new-empty-buffer () 
+  "Create an empty buffer." 
+  (interactive) 
+  (let (($buf (generate-new-buffer "untitled"))) 
+    (switch-to-buffer $buf) 
+    (funcall initial-major-mode) 
+    (setq buffer-offer-save t)
+    $buf))
 #+END_SRC
