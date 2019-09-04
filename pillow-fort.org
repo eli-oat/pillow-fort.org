@@ -12,6 +12,7 @@
   (tool-bar-mode   -1)
   (menu-bar-mode   +1) ; I <3 menu bar
   (scroll-bar-mode -1)
+  (window-divider-mode 1) ; allows you to resize windows by grabbing the divider
   (global-visual-line-mode 1) ; line wrapping, because I spend a lot of time working on very tiny screens
   (global-prettify-symbols-mode 1)
   (column-number-mode +1)
@@ -111,6 +112,22 @@ I've been waffling a lot, lately, and also enjoying light themes.
   (global-company-mode +1)))
 #+END_SRC
 
+** Neo Tree and Projectile
+I get that treemacs is better than neo tree, but, you know...sometimes you gotta do you?
+#+BEGIN_SRC emacs-lisp
+  (use-package neotree
+    :ensure t
+    :config
+    (global-set-key (kbd "C-c t") 'neotree-toggle)
+    (setq neo-smart-open t)
+    (setq neo-theme 'arrow))
+
+(use-package projectile 
+  :ensure t 
+  :config (progn (projectile-mode) 
+		 (define-key projectile-mode-map (kbd "M-p") 'projectile-command-map)))
+#+END_SRC
+
 ** Rainbows! 
 #+BEGIN_SRC emacs-lisp
 (use-package rainbow-delimiters
@@ -131,7 +148,7 @@ I've been waffling a lot, lately, and also enjoying light themes.
     :diminish git-gutter-mode)
 #+END_SRC
 
-** Highlight TODO and FIXME messages
+** Highlight TODO messages
 #+BEGIN_SRC emacs-lisp
 (use-package hl-todo
   :ensure t

@@ -1,0 +1,1 @@
+("~/.emacs.d/" "~/Developer/eli-scratch/")
