@@ -229,7 +229,7 @@
 #+BEGIN_SRC emacs-lisp
 (use-package js2-mode
   :ensure t
-  :mode "\\..js\\'")
+  :mode "\\.js\\'")
 #+END_SRC
 
 *** Typescript
