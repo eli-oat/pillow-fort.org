@@ -184,8 +184,7 @@ I've been waffling a lot, lately, and also enjoying light themes.
 (use-package org-bullets
   :ensure t
   :config
-  (setq org-bullets-bullet-list '("∙"))
-  (add-hook 'org-mode-hook 'org-bullets-mode))
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 #+END_SRC
 
 *** Restclient
