@@ -264,12 +264,12 @@ Who needs Postman when you've got emacs!?
   :interpreter "node" 
   :init (setq-default js2-concat-multiline-strings 'eol) 
   (setq-default js2-global-externs '("module" "require" "setTimeout" "clearTimeout" "setInterval"
-				     "clearInterval" "location" "__dirname" "console" "JSON"
-				     "window" "process" "fetch")) 
+             "clearInterval" "location" "__dirname" "console" "JSON"
+             "window" "process" "fetch")) 
   (setq-default js2-strict-inconsistent-return-warning nil) 
   :config (use-package 
-	    prettier-js 
-	    :ensure t) 
+      prettier-js 
+      :ensure t))
 #+END_SRC
 
 *** Typescript

@@ -6,3 +6,5 @@ pillow-fort.el
 auto-save-list
 eshell
 .cache
+session*
+projectile-bookmarks.eld
