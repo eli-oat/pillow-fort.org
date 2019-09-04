@@ -124,6 +124,16 @@
   :config (add-hook 'prog-mode-hook #'hl-todo-mode))
 #+END_SRC
 
+** Better undo-ing
+#+BEGIN_SRC emacs-lisp
+(use-package undo-tree 
+    :ensure t 
+    :config (global-undo-tree-mode))
+
+(use-package browse-kill-ring 
+    :ensure t)
+#+END_SRC
+
 ** Indent stuff for me
 #+BEGIN_SRC emacs-lisp
  (use-package aggressive-indent
