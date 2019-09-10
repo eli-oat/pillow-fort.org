@@ -3,6 +3,7 @@
 /local-elisp
 *.el~
 *.org~
+.org-id-locations
 pillow-fort.el
 auto-save-list
 eshell
