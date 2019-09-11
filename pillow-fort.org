@@ -194,7 +194,7 @@ I've been waffling a lot, lately, and also enjoying light themes.
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
-;; Ability to export org files in various formats
+;; Export org files in various formats
 (use-package htmlize
   :ensure t)
 (use-package ox-pandoc
@@ -297,6 +297,7 @@ Who needs Postman when you've got emacs!?
 #+END_SRC
 
 * Useful functions 
+  Namespaced custom funtions.
 ** Quickly edit this very file!
 #+BEGIN_SRC emacs-lisp
 (defun pillow-fort/find-config ()
