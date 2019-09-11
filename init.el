@@ -53,14 +53,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
+ '(package-selected-packages
    (quote
-    ("801a567c87755fe65d0484cb2bded31a4c5bb24fd1fe0ed11e6c02254017acb2" "341b2570a9bbfc1817074e3fad96a7eff06a75d8e2362c76a2c348d0e0877f31" default)))
- '(package-selected-packages (quote (prettier-js use-package slime))))
+    (tide prettier-js js2-mode json-mode web-mode elisp-format package-lint markdown-mode wispjs-mode cider clojure-mode ob-restclient restclient org-bullets golden-ratio flycheck aggressive-indent browse-kill-ring undo-tree hl-todo git-gutter magit nyan-mode rainbow-identifiers rainbow-delimiters company which-key helm use-package slime))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-done ((t (:foreground "PaleGreen" :weight normal :strike-through t))))
- '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:foreground "#5E81AC" :strike-through t)))))
+ '(org-done ((t (:foreground "#5DA7AA" :weight normal :strike-through t))))
+ '(org-headline-done ((((class color) (min-colors 16) (background light)) (:foreground "#5E81AC" :strike-through t)))))
