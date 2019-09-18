@@ -2,6 +2,7 @@
 /elpa
 /local-elisp
 /emojis
+/transient
 *.el~
 *.org~
 .org-id-locations
