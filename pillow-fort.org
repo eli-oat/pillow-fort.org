@@ -202,7 +202,7 @@ I've been waffling a lot, lately, and also enjoying light themes.
 #+END_SRC
 
 *** Restclient
-Who needs Postman when you've got emacs!?
+Who needs Postman when you've got emacs!? If you want something a bit more interactive take a look at [[https://github.com/gregsexton/httprepl.el][httprepl.el]].
 #+BEGIN_SRC emacs-lisp
 (use-package restclient
     :ensure t)

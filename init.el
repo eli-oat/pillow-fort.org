@@ -48,18 +48,3 @@
 
 (provide 'init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (tide prettier-js js2-mode json-mode web-mode elisp-format package-lint markdown-mode wispjs-mode cider clojure-mode ob-restclient restclient org-bullets golden-ratio flycheck aggressive-indent browse-kill-ring undo-tree hl-todo git-gutter magit nyan-mode rainbow-identifiers rainbow-delimiters company which-key helm use-package slime))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-done ((t (:foreground "#5DA7AA" :weight normal :strike-through t))))
- '(org-headline-done ((((class color) (min-colors 16) (background light)) (:foreground "#5E81AC" :strike-through t)))))
