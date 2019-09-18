@@ -1,6 +1,7 @@
 */.DS_STORE
 /elpa
 /local-elisp
+/emojis
 *.el~
 *.org~
 .org-id-locations
