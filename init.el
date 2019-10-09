@@ -46,5 +46,10 @@
 (when (file-exists-p "~/.emacs.d/blanket-fort.el")
 (load "~/.emacs.d/blanket-fort.el"))
 
+;; Dump custom stuff outside of init.el!
+(setq custom-file 
+  (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file)
+
 (provide 'init)
 ;;; init.el ends here
