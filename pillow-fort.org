@@ -48,7 +48,15 @@ I've been waffling a lot, lately, and also enjoying light themes.
 
 #+BEGIN_SRC emacs-lisp
 ;; Stop emacs from littering your file system with garbage
-(setq create-lock-files nil make-backup-files nil auto-save-default nil)
+;; (setq create-lock-files nil make-backup-files nil auto-save-default nil)
+
+;; But wait!? Backups are good -- lets keep making them but centralize them to a predictable location
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t) ;; SLOW but very safe
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
 
 ;; Play nice(er) with the X11 clipboard
 (setq select-enable-clipboard t)
