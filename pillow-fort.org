@@ -150,12 +150,12 @@ I've been waffling a lot, lately, and also enjoying light themes.
 
 ** Better undo-ing
 #+BEGIN_SRC emacs-lisp
-(use-package undo-tree 
-    :ensure t 
-    :config (global-undo-tree-mode))
+; (use-package undo-tree 
+;     :ensure t 
+;     :config (global-undo-tree-mode))
 
-(use-package browse-kill-ring 
-    :ensure t)
+; (use-package browse-kill-ring 
+;     :ensure t)
 #+END_SRC
 
 ** Indent stuff for me
@@ -227,14 +227,14 @@ Who needs Postman when you've got emacs!? If you want something a bit more inter
 (use-package clojure-mode
     :ensure t)
 
-(use-package 
-  cider 
-  :ensure t 
-  :config (progn (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion) 
-		 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion) 
-		 (add-hook 'after-save-hook (lambda() 
-					      (when (eq major-mode 'clojure-mode) 
-						(cider-load-buffer))))))
+; (use-package 
+;   cider 
+;   :ensure t 
+;   :config (progn (add-hook 'cider-repl-mode-hook #'cider-company-enable-fuzzy-completion) 
+; 		 (add-hook 'cider-mode-hook #'cider-company-enable-fuzzy-completion) 
+; 		 (add-hook 'after-save-hook (lambda() 
+; 					      (when (eq major-mode 'clojure-mode) 
+; 						(cider-load-buffer))))))
 #+END_SRC
 
 *** WISP
@@ -253,13 +253,14 @@ Who needs Postman when you've got emacs!? If you want something a bit more inter
 	 ("\\.txt\\'" . markdown-mode) 
 	 ("\\.md\\'" . markdown-mode) 
 	 ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
+  :init (setq markdown-command "pandoc"))
 #+END_SRC
 
 *** Elisp
 #+BEGIN_SRC emacs-lisp
-(use-package package-lint 
-  :ensure t)
+; (use-package package-lint 
+;   :ensure t)
+
 (use-package elisp-format 
   :ensure t)
 #+END_SRC
