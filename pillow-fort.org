@@ -307,7 +307,7 @@ Who needs Postman when you've got emacs!? If you want something a bit more inter
 #+END_SRC
 
 * Useful functions 
-  Namespaced custom funtions.
+  Namespaced custom functions.
 ** Quickly edit this very file!
 #+BEGIN_SRC emacs-lisp
 (defun pillow-fort/find-config ()
@@ -318,7 +318,7 @@ Who needs Postman when you've got emacs!? If you want something a bit more inter
 
 ** Create a new empty buffer 
 #+BEGIN_SRC emacs-lisp
-;; Straight up stollen from <http://ergoemacs.org/emacs/emacs_new_empty_buffer.html>
+;; Straight up stolen from <http://ergoemacs.org/emacs/emacs_new_empty_buffer.html>
 (defun pillow-fort/new-empty-buffer () 
   "Create an empty buffer." 
   (interactive) 
